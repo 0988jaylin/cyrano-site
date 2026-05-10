@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy / 隱私權政策 — Cyrano</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #FAFAFA;
+            --surface: #FFFFFF;
+            --text: #0F172A;
+            --text-secondary: #475569;
+            --accent: #2563EB;
+            --border: #E2E8F0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans", "Microsoft JhengHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--accent); }
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            background: var(--surface);
+            min-height: 100vh;
+        }
+        h1 { font-size: 36px; margin-bottom: 8px; }
+        h2 { font-size: 26px; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+        h3 { font-size: 20px; margin: 24px 0 12px; }
+        h4 { font-size: 17px; margin: 20px 0 8px; color: var(--text-secondary); }
+        p { margin-bottom: 12px; }
+        ul, ol { margin: 12px 0 12px 28px; }
+        li { margin-bottom: 6px; }
+        .meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        .lang-tab {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        .lang-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .divider { border: none; border-top: 2px solid var(--border); margin: 60px 0 40px; }
+        code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 90%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← 回到 Cyrano 首頁</a>
+
+        <h1>Privacy Policy / 隱私權政策</h1>
+        <p class="meta">Last updated / 最後更新：2026-05-10 · Effective: v1.0 上架日</p>
+
+        <div style="margin-bottom: 24px;">
+            <a href="#en" class="lang-tab">English</a>
+            <a href="#zh" class="lang-tab active">繁體中文</a>
+        </div>
+
+        <section id="zh">
+            <h2>總覽</h2>
+            <p>Cyrano（「本 App」、「我們」）是 Jay Lin 開發的 iOS 應用程式，提供裝置端 AI 輔助的即時對話翻譯與回應建議。本隱私權政策說明 App 存取哪些資料、如何處理，以及您作為使用者的權利。</p>
+            <p><strong>簡短版</strong>：Cyrano v1.0 所有處理都在您的 iPhone 上完成。對話音訊、文字逐字稿、AI 建議都不會離開您的裝置。我們不蒐集任何資料。</p>
+
+            <h2>App 存取的內容</h2>
+
+            <h3>麥克風</h3>
+            <ul>
+                <li><strong>目的</strong>：收錄您和對話對象的音訊，用於即時翻譯與 AI 助手功能。</li>
+                <li><strong>音訊去向</strong>：音訊緩衝區直接串流給 Apple 裝置端語音辨識（SFSpeechRecognizer），辨識完即丟棄。</li>
+                <li><strong>儲存</strong>：不寫入磁碟，不傳送至任何伺服器。</li>
+            </ul>
+
+            <h3>語音辨識</h3>
+            <ul>
+                <li><strong>提供者</strong>：Apple SFSpeechRecognizer，設定為使用裝置端辨識。</li>
+                <li><strong>結果處理</strong>：轉成的文字保留在 app 記憶體（RAM）中作為當前對話 session 使用，關閉 app 後即消失。</li>
+                <li><strong>無持久化</strong>：v1.0 不將對話文字儲存至任何持久化儲存。</li>
+            </ul>
+
+            <h3>AI 助手（Apple Foundation Models）</h3>
+            <ul>
+                <li><strong>提供者</strong>：Apple 裝置端語言模型，iOS 26+ 且支援 Apple Intelligence 的 iPhone 上可用。</li>
+                <li><strong>處理位置</strong>：完全在您的 iPhone 上。提示與回應都不離開裝置。</li>
+                <li><strong>舊裝置 fallback</strong>：v1.0 此 AI 助手功能不可用，會顯示明確的 in-app 訊息，<strong>不會 fallback 至雲端服務</strong>。</li>
+            </ul>
+
+            <h3>Apple Translation Framework</h3>
+            <ul>
+                <li><strong>提供者</strong>：Apple 內建翻譯框架。</li>
+                <li><strong>處理位置</strong>：使用者確認一次性語言包下載後，於裝置端處理。</li>
+            </ul>
+
+            <h2>App 不做的事（v1.0）</h2>
+            <ul>
+                <li>無 analytics 或 telemetry SDK</li>
+                <li>無對外傳送資料的 crash reporter</li>
+                <li>無廣告識別碼（不使用 IDFA）</li>
+                <li>無第三方追蹤</li>
+                <li>無使用者帳號或認證</li>
+                <li>無雲端儲存或同步</li>
+                <li>無與第三方分享資料</li>
+                <li>v1.0 不對外發起任何內容處理用途的網路請求</li>
+            </ul>
+
+            <h2>兒童隱私</h2>
+            <p>Cyrano 在 App Store 分級為 4+，我們不蒐集任何使用者（包括兒童）資料。</p>
+
+            <h2>您的權利（GDPR / CCPA / 台灣個人資料保護法）</h2>
+            <p>由於 Cyrano 不蒐集個人資料，以下權利自動滿足：</p>
+            <ul>
+                <li><strong>存取權</strong>：無資料可供存取。</li>
+                <li><strong>刪除權</strong>：關閉 app 即刪除記憶體中的對話。解除安裝會移除一切。</li>
+                <li><strong>資料可攜權</strong>：無資料可移轉。</li>
+                <li><strong>撤回同意</strong>：您可隨時透過 iOS 設定 → Cyrano 撤銷麥克風 / 語音辨識權限。</li>
+            </ul>
+
+            <h2>未來版本揭露</h2>
+            <p>Cyrano 未來版本（v1.1 及之後）可能引入可選的雲端 AI 提供者作為 in-app 訂閱方案的一部分。<strong>如有此變更</strong>：</p>
+            <ul>
+                <li>本隱私權政策將以明確生效日更新。</li>
+                <li>雲端 LLM 功能將<strong>嚴格採 opt-in</strong>且需要有效訂閱。</li>
+                <li>任何資料送至第三方 LLM provider 前，會明確告知使用者。</li>
+                <li>免費版使用者將繼續保持<strong>資料零外傳</strong>。</li>
+            </ul>
+            <p>我們承諾絕不在更新中默默改變隱私處理方式而不通知使用者。</p>
+
+            <h2>聯絡方式</h2>
+            <p>如有隱私相關問題：</p>
+            <ul>
+                <li><strong>Email</strong>：[待填寫]</li>
+            </ul>
+        </section>
+
+        <hr class="divider">
+
+        <section id="en">
+            <h2>Overview</h2>
+            <p>Cyrano is an iOS application developed by Jay Lin that provides on-device AI-assisted live conversation translation and reply suggestions.</p>
+            <p><strong>Short version</strong>: Cyrano v1.0 processes everything on your iPhone. Conversation audio, transcripts, and AI suggestions never leave your device. We collect nothing.</p>
+
+            <h2>What the App Accesses</h2>
+
+            <h3>Microphone</h3>
+            <ul>
+                <li><strong>Purpose</strong>: To capture audio for live translation and AI assistant features.</li>
+                <li><strong>Where audio goes</strong>: Streamed directly to Apple's on-device SFSpeechRecognizer and discarded after transcription.</li>
+                <li><strong>Storage</strong>: No audio written to disk or transmitted to any server.</li>
+            </ul>
+
+            <h3>Speech Recognition</h3>
+            <ul>
+                <li>Apple SFSpeechRecognizer with on-device recognition where supported.</li>
+                <li>Transcripts held in app memory only; discarded when the app closes.</li>
+            </ul>
+
+            <h3>AI Assistant (Apple Foundation Models)</h3>
+            <ul>
+                <li>Apple's on-device language model. Available on iOS 26+ with Apple Intelligence-compatible iPhones.</li>
+                <li>Entirely on-device. On older devices the assistant is unavailable in v1.0 and surfaces a clear in-app message rather than falling back to cloud.</li>
+            </ul>
+
+            <h2>What the App Does NOT Do (v1.0)</h2>
+            <ul>
+                <li>No analytics or telemetry SDKs</li>
+                <li>No data-transmitting crash reporters</li>
+                <li>No advertising identifiers (no IDFA)</li>
+                <li>No third-party tracking</li>
+                <li>No user accounts</li>
+                <li>No cloud storage or sync</li>
+                <li>No data sharing with third parties</li>
+                <li>No network requests for content processing in v1.0</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>Cyrano is rated 4+ on the App Store and does not knowingly collect any data from anyone, including children.</p>
+
+            <h2>Your Rights (GDPR / CCPA / Taiwan PDPA)</h2>
+            <p>Because Cyrano collects no personal data:</p>
+            <ul>
+                <li><strong>Right to access</strong>: There is no data to access.</li>
+                <li><strong>Right to deletion</strong>: Closing the app deletes the in-memory conversation. Uninstalling removes everything.</li>
+                <li><strong>Right to portability</strong>: There is no data to port.</li>
+                <li><strong>Right to withdraw consent</strong>: Revoke microphone / speech recognition permissions via iOS Settings → Cyrano.</li>
+            </ul>
+
+            <h2>Future Versions Disclosure</h2>
+            <p>Future versions may introduce optional cloud-based AI providers as part of an in-app subscription tier. If and when this happens:</p>
+            <ul>
+                <li>This Privacy Policy will be updated with a clear effective date.</li>
+                <li>Cloud LLM features will be <strong>strictly opt-in</strong> and require an active subscription.</li>
+                <li>Users will be clearly informed before any data is sent to a third-party LLM provider.</li>
+                <li>Free-tier users will continue to have <strong>zero data leaving the device</strong>.</li>
+            </ul>
+
+            <h2>Contact</h2>
+            <p>For privacy-related questions:</p>
+            <ul>
+                <li><strong>Email</strong>: [TO BE FILLED]</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

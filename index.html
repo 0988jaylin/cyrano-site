@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyrano 是 iOS 上的 AI 幕僚。戴上 AirPods 即時翻譯與對話提示，全程裝置端 AI 處理。">
+    <meta name="keywords" content="Cyrano, AI, AirPods, 翻譯, 即時口譯, 對話提示">
+
+    <meta property="og:title" content="Cyrano — AI 幕僚 + 即時翻譯">
+    <meta property="og:description" content="戴上 AirPods，AI 在你耳邊幫你接話。對方講外語直接翻譯給你聽，被問難題時 AI 整理回應。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://0988jaylin.github.io/cyrano-site/">
+
+    <title>Cyrano — AI 幕僚 + 即時翻譯</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #0F172A;
+            --surface: #1E293B;
+            --text: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --accent: #FBBF24;
+            --accent-hover: #F59E0B;
+            --border: #334155;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Hiragino Sans", "Yu Gothic", "Microsoft JhengHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #1E1B4B 0%, var(--bg) 100%);
+        }
+        header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        header .tagline {
+            font-size: 22px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        .download-row { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .badge-placeholder {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: var(--bg);
+            font-weight: 700;
+            border-radius: 12px;
+            font-size: 18px;
+        }
+        .badge-placeholder.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        section { padding: 60px 0; }
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature {
+            background: var(--surface);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        .feature h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+        .feature .icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+        }
+        .mode {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+        .mode h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .mode .flow {
+            background: var(--bg);
+            padding: 16px;
+            border-radius: 8px;
+            font-family: ui-monospace, "SF Mono", Menlo, monospace;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 16px 0;
+            white-space: pre-wrap;
+        }
+
+        .privacy-block {
+            background: linear-gradient(135deg, #312E81 0%, #1E1B4B 100%);
+            padding: 48px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        .privacy-block h2 { margin-bottom: 16px; }
+        .privacy-block p { color: var(--text-secondary); font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+        footer {
+            padding: 48px 0 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        footer .footer-links { margin-bottom: 16px; }
+        footer .footer-links a { margin: 0 12px; }
+
+        .placeholder-screenshot {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 9/19.5;
+            background: var(--surface);
+            border: 2px dashed var(--border);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 0 auto;
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 48px 0 32px; }
+            header h1 { font-size: 36px; }
+            header .tagline { font-size: 18px; }
+            section h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cyrano</h1>
+            <p class="tagline">AI 幕僚．即時翻譯 × 對話提示</p>
+            <div class="download-row">
+                <span class="badge-placeholder">App Store 即將上架</span>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>戴上 AirPods，讓 AI 在耳邊接話</h2>
+            <div class="modes">
+                <div class="mode">
+                    <h3>🎧 AI 幕僚</h3>
+                    <p>對方講話，AI 立刻整理「對方在問什麼」+「建議回答方向」，從 AirPods 唸給你聽。</p>
+                    <div class="flow">對方講話 → STT → AI → AirPods 唸提示</div>
+                    <p>適合商務會議、客戶提問、面試、跨文化交流。</p>
+                </div>
+                <div class="mode">
+                    <h3>🌐 雙向即時翻譯</h3>
+                    <p>你戴 AirPods 聽中文，對方聽 iPhone 喇叭播出的英文。手機放桌上面對對方就好。</p>
+                    <div class="flow">英文 → AirPods 中文
+中文（PTT） → 喇叭英文</div>
+                    <p>支援按住說話 + 語句斷點自動切句兩種模式。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>為什麼選 Cyrano</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="icon">🔒</div>
+                    <h3>端側 AI、隱私至上</h3>
+                    <p>預設使用 Apple Foundation Models 端側 AI，對話內容完全不離開 iPhone。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">⚡</div>
+                    <h3>零設定即用</h3>
+                    <p>不需註冊帳號、不需 API 金鑰、不需訂閱。打開即用。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🤖</div>
+                    <h3>對話節奏自然</h3>
+                    <p>偵測你停頓自動接話提示，無需按按鈕。也支援手動 Push-to-Talk。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🌏</div>
+                    <h3>四語切換</h3>
+                    <p>中、英、日、韓四語，首頁直接切換對方語言／你的語言。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🎙️</div>
+                    <h3>真實對話音訊路由</h3>
+                    <p>雙向翻譯時，對方聽喇叭、你聽 AirPods，自然如同雙語會議。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🛠️</div>
+                    <h3>可調語音風格</h3>
+                    <p>性別、語速、AI 提示口吻全部可自訂。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="privacy-block">
+                <h2>對話內容從不離開你的 iPhone</h2>
+                <p>Cyrano v1.0 全部處理都在 Apple Foundation Models 端側 AI 完成。沒有雲端、沒有伺服器、沒有資料蒐集。</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>裝置需求</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>iPhone</h3>
+                    <p>iOS 18 或更新版本。AirPods（任何世代）建議搭配；無 AirPods 也可使用。</p>
+                </div>
+                <div class="feature">
+                    <h3>最高品質 AI</h3>
+                    <p>iOS 26 + 支援 Apple Intelligence 的 iPhone（iPhone 15 Pro 或更新）。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">隱私權政策</a>
+                <a href="terms.html">服務條款</a>
+            </div>
+            <p>© 2026 Jay Lin · Made with care for great conversations</p>
+        </div>
+    </footer>
+</body>
+</html>
